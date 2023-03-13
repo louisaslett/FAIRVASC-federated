@@ -1,5 +1,5 @@
 # Start from the default Github Codespaces image, see https://github.com/devcontainers/images/tree/main/src/universal
-FROM mcr.microsoft.com/devcontainers/universal:focal
+FROM mcr.microsoft.com/devcontainers/universal:2-linux
 
 # Install R, see https://cran.r-project.org/bin/linux/ubuntu/#install-r
 # We also add the Posit Package Manager repo and enable headers for binary packages, see https://packagemanager.rstudio.com/__docs__/admin/serving-binaries/#binary-user-agents
