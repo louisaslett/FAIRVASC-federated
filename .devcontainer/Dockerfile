@@ -10,3 +10,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends r-base \
     && echo 'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])))' >> /etc/R/Rprofile.site \
     && echo 'options(repos = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest")' >> /etc/R/Rprofile.site
+
+# Install R packages
+RUN R -e "install.packages( c( \
+      'tidyverse', \
+      'bayestestR', \
+      'rdflib' \
+    ))"
