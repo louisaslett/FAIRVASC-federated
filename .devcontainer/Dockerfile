@@ -17,3 +17,11 @@ RUN R -e "install.packages( c( \
       'bayestestR', \
       'rdflib' \
     ))"
+
+# Install sysdeps for above R packages
+RUN DEBIAN_FRONTEND=noninteractive apt-get -qq -y update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -qq -y upgrade \
+    && DEBIAN_FRONTEND=noninteractive apt-get -qq -y install \
+      librdf0-dev \
+    && DEBIAN_FRONTEND=noninteractive apt-get -qq -y clean \
+    && rm -rf /var/lib/apt/lists/*
