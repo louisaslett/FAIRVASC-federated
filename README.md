@@ -1,6 +1,7 @@
 # FAIRVASC Federated Sandbox
 
 This is a research sandbox to implement various ideas for federating the specific setup used in the [Fairvasc.eu](https://fairvasc.eu/) project.
+You can run the models and simulate a registry setup without leaving your browser by using the custom Github Codespaces environment (see below).
 
 ## SPARQL Sandbox
 
@@ -15,14 +16,14 @@ This setup enables safe sandbox development of new methods and road-testing of t
 
 ## Models
 
-The `models` folder contains a subfolder for each research model developed.
-My ultimate research goal is a general methodology, but this solution is some way off.
-In the interim, we propose to develop some approaches for specific models which are likely to be able to provide rapid statistical analyses for some sample clinical questions of pertinentce to Fairvasc.
+The `models` folder contains a subfolder for each standard model developed with a private counterpart supporting deployment within SPARQL using a JavaScript runtime.
+The ultimate research goal is a much more general methodology, which is being developed under the EPSRC PINCODE project (joint with Gareth Roberts, Murray Pollock and Hongsheng Dai) that launches mid-2023.
+In the interim, I am developing some approaches for specific models which are likely to provide rapid statistical analyses for some sample clinical questions of pertinentce to Fairvasc.
 
 So far, we are working on:
 
 - **Linear Regression** (`models/linreg`): this was the original example Louis produced to demonstrate proof-of-concept for federating analyses in the Fairvasc SPARQL setup.
-- **Log-rank Test** (in development): proposed by Arthur, this is being developed as likely to provide concrete analysis results for clinically interesting questions with the simplest combination step.
+- **Log-rank Test** (in development): idea proposed by Arthur, this is being developed as likely to provide concrete analysis results for clinically interesting questions with the simplest combination step.
 
 ## Codespaces
 
