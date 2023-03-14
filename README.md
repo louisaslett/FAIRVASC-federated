@@ -17,7 +17,7 @@ This setup enables safe sandbox development of new methods and road-testing of t
 ## Models
 
 The `models` folder contains a subfolder for each standard model developed with a private counterpart supporting deployment within SPARQL using a JavaScript runtime.
-The ultimate research goal is a much more general methodology, which is being developed under the EPSRC PINCODE project (joint with Gareth Roberts, Murray Pollock and Hongsheng Dai) that launches mid-2023.
+The ultimate research goal is a much more general methodology, which is being co-developed by Louis under the EPSRC PINCODE project (joint with Gareth Roberts, Murray Pollock and Hongsheng Dai) that launches mid-2023.
 In the interim, I am developing some approaches for specific models which are likely to provide rapid statistical analyses for some sample clinical questions of pertinentce to Fairvasc.
 
 So far, we are working on:
