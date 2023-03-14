@@ -8,5 +8,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -qq -y update \
     && wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
     && add-apt-repository -y -u "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" \
     && DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends r-base \
-    && echo -E 'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])))' >> /etc/R/Rprofile.site \
-    && echo -E 'options(POSIT = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest")' >> /etc/R/Rprofile.site
+    && echo 'options(HTTPUserAgent = sprintf("R/%s R (%s)", getRversion(), paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])))' >> /etc/R/Rprofile.site \
+    && echo 'options(repos = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest")' >> /etc/R/Rprofile.site
