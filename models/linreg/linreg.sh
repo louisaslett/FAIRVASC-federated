@@ -7,18 +7,18 @@ diff linreg_xtx_xty.js linreg_xtx_xty_slave.js
 
 # Launch containers running Fuseki SPARQL server to replicate a distributed
 # environment
-# NOTE: run each of these in a separate terminal so that the output can be 
-# viewed
+# NOTE: run each of these in a separate terminal, *from* the models/linreg
+# folder, so that the output can be viewed
 docker run -it --rm -p "3030:3030" --name reg1 \
-    -v $(pwd)/linreg_xtx_xty.js:/jsfuncs.js \
+    -v $(pwd)/linreg_xtx_xty.js:/jsfuncs.js:ro \
     ghcr.io/louisaslett/fairvasc_fuseki:latest --update \
     --set arq:js-library=/jsfuncs.js --mem /fv
 docker run -it --rm -p "3031:3030" --name reg2 \
-    -v $(pwd)/linreg_xtx_xty.js:/jsfuncs.js \
+    -v $(pwd)/linreg_xtx_xty_slave.js:/jsfuncs.js:ro \
     ghcr.io/louisaslett/fairvasc_fuseki:latest --update \
     --set arq:js-library=/jsfuncs.js --mem /fv
 docker run -it --rm -p "3032:3030" --name reg3 \
-    -v $(pwd)/linreg_xtx_xty.js:/jsfuncs.js \
+    -v $(pwd)/linreg_xtx_xty_slave.js:/jsfuncs.js:ro \
     ghcr.io/louisaslett/fairvasc_fuseki:latest --update \
     --set arq:js-library=/jsfuncs.js --mem /fv
 
