@@ -1,0 +1,14 @@
+query=PREFIX js: <http://jena.apache.org/ARQ/jsFunction#>
+
+SELECT (js:linreg(GROUP_CONCAT(?xtx), GROUP_CONCAT(?xty)) AS ?res) WHERE
+{
+  {SERVICE <http://localhost:3030/fv> {
+    SELECT (js:linreg_xtx(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xtx)
+           (js:linreg_xty(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xty)
+
+    WHERE {
+      ?patient <fairvasc:x> ?x.
+      ?patient <fairvasc:y> ?y.
+    }
+  }}
+}

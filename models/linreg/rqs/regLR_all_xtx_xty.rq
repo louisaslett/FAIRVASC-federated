@@ -1,0 +1,38 @@
+query=PREFIX js: <http://jena.apache.org/ARQ/jsFunction#>
+
+SELECT * WHERE
+{
+  {SERVICE <http://172.17.0.2:3030/fv> {
+    SELECT (js:linreg_xtx(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xtx)
+           (js:linreg_xty(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xty)
+
+    WHERE {
+      ?patient <fairvasc:x> ?x.
+      ?patient <fairvasc:y> ?y.
+    }
+  }}
+
+  UNION
+
+  {SERVICE <http://172.17.0.3:3030/fv> {
+    SELECT (js:linreg_xtx_slave(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xtx)
+           (js:linreg_xty_slave(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xty)
+
+    WHERE {
+      ?patient <fairvasc:x> ?x.
+      ?patient <fairvasc:y> ?y.
+    }
+  }}
+
+  UNION
+
+  {SERVICE <http://172.17.0.4:3030/fv> {
+    SELECT (js:linreg_xtx_slave(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xtx)
+           (js:linreg_xty_slave(GROUP_CONCAT(STR(?x)), GROUP_CONCAT(?y)) AS ?xty)
+
+    WHERE {
+      ?patient <fairvasc:x> ?x.
+      ?patient <fairvasc:y> ?y.
+    }
+  }}
+}
